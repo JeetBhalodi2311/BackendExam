@@ -41,7 +41,6 @@ namespace BackendApiExam.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(RoleDTO role)
         {
-            // check if role name already exists
             var exists = await _db.Roles.AnyAsync(r => r.Name == role.Name);
             if (exists)
             {
