@@ -21,7 +21,6 @@ namespace BackendApiExam.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            // get all roles from database
             var roles = await _db.Roles.ToListAsync();
             return Ok(roles);
         }
