@@ -38,7 +38,6 @@ namespace BackendApiExam.Controllers
             _context.Tickets.Add(ticket);
             await _context.SaveChangesAsync();
 
-            // get the ticket again with relations
             var t = await _context.Tickets
                 .Include(x => x.CreatedByUser).ThenInclude(u => u.Role)
                 .Include(x => x.AssignedToUser).ThenInclude(u => u!.Role)
